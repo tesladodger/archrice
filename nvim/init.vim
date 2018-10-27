@@ -8,6 +8,9 @@ set noerrorbells
 set visualbell
 set noshowmode
 
+" Mappings
+:imap jj <Esc>
+
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'dikiaap/minimalist'
