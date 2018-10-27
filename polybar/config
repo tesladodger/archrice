@@ -21,15 +21,15 @@ background = #131313
 background-alt = #131313
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+primary = #dfdfdf
+secondary = #131313
 alert = #bd2c40
 
 [bar/tesla]
 width = 100%
-height = 20
+height = 18
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -51,8 +51,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
-modules-center = 
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center = date
+modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
 
 tray-position = right
 tray-padding = 2
@@ -88,7 +88,7 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused-background = #2c3947
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -190,7 +190,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = "%d/%M/%Y -"
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
@@ -301,6 +301,6 @@ menu-2-1-exec = menu-open-0
 screenchange-reload = true
 
 [global/wm]
-margin-top = 5
-margin-bottom = 2
+margin-top = 3
+margin-bottom = 3
 
