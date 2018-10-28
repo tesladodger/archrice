@@ -1,26 +1,28 @@
 #
 # ~/.bashrc
-# _____ _____ _____ _
-#|_   _|  ___|   __| |      /\
-#  | | | \\__ \_\__| |___  /__\
-#  |_| |_____|_____|_____|/_||_\
+# _____ _____ _____ _        _
+#|_   _|  ___|   __| |      / \
+#  | | | \\__ \_\__| |___  / _ \
+#  |_| |_____|_____|_____|/_| |_\
+
 
 
 [[ $- != *i* ]] && return
 
 
-
 RED="\[$(tput setaf 1)\]"
 RESET="\[$(tput sgr0)\]"
+PS1="${RED}[\u@\h \w]\$ ${RESET}\n-> "
 
-PS1="${RED}[\u@\h \W]\$ ${RESET}"
 
 export EDITOR=nvim
 
+
 # ALIASES
+alias l='i3lock -f -c 131313'
 alias ls='ls --color=auto'
 alias ll='ls -lah'
-alias h='cd ~'
+alias u='cd ~'
 alias b='cd ..'
 alias b2='cd ../..'
 alias firefox='firefox & q'
