@@ -1,12 +1,17 @@
 " Settings
 set nocompatible
-set autoindent
-set cursorline
-set number
-set autoread
+set autoindent     " Copy indent from last line
+set cursorline	   " Highlight current line
+set number         " Line number
+set autoread       " Read when file is changed elsewhere
 set noerrorbells
 set visualbell
-set noshowmode
+set noshowmode     " Mode will be displayed by airline
+set shortmess=atI  " Turn off intro message
+set hlsearch       " Highlight searches
+set incsearch      " Highlight as serch is typped
+set scrolloff=4    " Start scrolling before eof
+set wrapscan       " Wrap search at eof
 
 " Mappings
 :imap jj <Esc>
