@@ -19,7 +19,7 @@ export EDITOR=nvim
 
 
 # ALIASES
-alias l='i3lock -f -c 131313'
+alias l='i3lock -f -i ~/Pictures/windowsscreen.png -p win'
 alias ls='ls --color=auto'
 alias ll='ls -lah'
 alias u='cd ~'
