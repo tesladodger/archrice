@@ -4,17 +4,23 @@ set autoindent     " Copy indent from last line
 set cursorline	   " Highlight current line
 set number         " Line number
 set autoread       " Read when file is changed elsewhere
-set noerrorbells
-set visualbell
+set noerrorbells   " Turn off audio errors
+set visualbell     " Turn on visual errors
 set noshowmode     " Mode will be displayed by airline
 set shortmess=atI  " Turn off intro message
 set hlsearch       " Highlight searches
-set incsearch      " Highlight as serch is typped
+set incsearch      " Highlight as search is typped
 set scrolloff=4    " Start scrolling before eof
 set wrapscan       " Wrap search at eof
+set splitbelow     " Horizontal splits open below current window
+set splitright     " Vertical splits open right of new window
 
 " Mappings
 :imap jj <Esc>
+:nnoremap <C-J> <C-W><C-J>
+:nnoremap <C-K> <C-W><C-K>
+:nnoremap <C-L> <C-W><C-L>
+:nnoremap <C-H> <C-W><C-H>
 
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
