@@ -7,6 +7,7 @@ primary = #dfdfdf
 secondary = #131313
 alert = #bd2c40
 
+
 [bar/tesla]
 width = 100%
 height = 18
@@ -22,11 +23,11 @@ padding-left = 2
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
-font-0 = Noto Sans:size=10;3
+font-0 = Noto Sans:size=10;2
 font-1 = Noto Sans:size=10:weight=bold;2
 font-2 = Noto Sans Mono:size=10:weight=bold;2
-font-3 = Noto Sans Symbols:size=13;4
-modules-left = logo i3
+font-3 = Symbols Nerd Font:size=10;2
+modules-left = i3
 modules-center = date
 modules-right = filesystem xkeyboard memory cpu wlan eth battery
 tray-position = right
@@ -56,6 +57,7 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
 
 [module/i3]
 type = internal/i3
@@ -112,8 +114,8 @@ format-disconnected =
 [module/date]
 type = internal/date
 interval = 1
-date = "%d/%M/%Y -"
-date-alt = " %Y-%m-%d"
+date = "%d/%m/%Y -"
+date-alt = " %Y/%m/%d -"
 time = %H:%M:%S
 time-alt = %H:%M:%S
 label = %date% %time%
@@ -126,7 +128,7 @@ adapter = AC
 full-at = 98
 
 
-[module/logo]
+[module/arch]
 type = custom/text
 content = %{T6} %{T-}
 content_padding = 1
