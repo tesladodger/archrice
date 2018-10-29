@@ -154,14 +154,16 @@ exec "feh --bg-scale ~/Pictures/background.png"
 exec "xcompmgr -c -f -n"
 
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 gaps inner 8
 gaps outer 0
+smart_gaps on
+smart_borders on
 
 ###################
 #      THEME      #
 ###################
-set $bg       #24272e
+set $bg       #232323
 set $bg_high  #2c3947
 set $fg       #abb2bf
 set $fg_high  #d0d0d0
