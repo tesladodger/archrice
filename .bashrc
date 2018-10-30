@@ -13,11 +13,15 @@
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 
-
+BACK1="\e[48;5;237m"
+DIAMOND1="\e[38;5;237m\e[38;5;255m"
+BACK2="\e[48;5;239m"
+DIAMOND2="\e[38;5;239m\e[38;5;255m"
+BACK3="\e[48;5;241m"
+DIAMOND3="\e[38;5;241m\e[38;5;255m"
 RED="\[$(tput setaf 1)\]"
 RESET="\[$(tput sgr0)\]"
-PS1="${RED}[\u@\h \w]\$ ${RESET}\n-> "
-
+PS1="${BACK1} \u@\h ${BACK2}${DIAMOND1} \w ${BACK3}${DIAMOND2} \$ ${RESET}${DIAMOND3}\n${RED}->${RESET}  "
 
 export EDITOR=nvim
 
@@ -29,6 +33,7 @@ alias ll='ls -lah'
 alias u='cd ~'
 alias b='cd ..'
 alias b2='cd ../..'
+alias b3='cd ../../..'
 alias firefox='firefox & q'
 alias matrix='./unimatrix.py'
 alias vim='nvim'
@@ -44,3 +49,4 @@ alias gita='git add'
 alias gitp='git push'
 alias gitpl='git pull'
 alias gitcl='git clone'
+alias gitco='git checkout'
