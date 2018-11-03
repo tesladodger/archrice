@@ -13,15 +13,15 @@
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 
-BACK1="\e[48;5;237m"
-DIAMOND1="\e[38;5;237m\e[38;5;255m"
-BACK2="\e[48;5;239m"
-DIAMOND2="\e[38;5;239m\e[38;5;255m"
-BACK3="\e[48;5;241m"
-DIAMOND3="\e[38;5;241m\e[38;5;255m"
-RED="\[$(tput setaf 1)\]"
+# BACK1="\e[48;5;237m\["
+# DIAMOND1="\e[38;5;237m\[\e[38;5;255m\["
+# BACK2="\e[48;5;239m\["
+# DIAMOND2="\e[38;5;239m\[\e[38;5;255m\["
+# BACK3="\e[48;5;241m\["
+# DIAMOND3="\e[38;5;241m\[\e[38;5;255m\["
+GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
-PS1="${BACK1} \u@\h ${BACK2}${DIAMOND1} \w ${BACK3}${DIAMOND2} \$ ${RESET}${DIAMOND3}\n${RED}->${RESET}  "
+PS1="${BACK1}${GREEN} \u@\h ${BACK2}${DIAMOND1} \w ${BACK3}${DIAMOND2} \$ ${RESET}${DIAMOND3}${RESET}-> "
 
 export EDITOR=nvim
 
@@ -50,3 +50,7 @@ alias gitp='git push'
 alias gitpl='git pull'
 alias gitcl='git clone'
 alias gitco='git checkout'
+
+# ls COLORS
+LS_COLORS=$LS_COLORS:'ex=0;92:''di=0;94' ;
+export LS_COLORS

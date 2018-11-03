@@ -15,6 +15,9 @@ set wrapscan       " Wrap search at eof
 set splitbelow     " Horizontal splits open below current window
 set splitright     " Vertical splits open right of new window
 
+" Show tabs
+:set list
+
 " Mappings
 :imap jj <Esc>
 :nnoremap <C-J> <C-W><C-J>
@@ -26,6 +29,8 @@ set splitright     " Vertical splits open right of new window
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'dikiaap/minimalist'
 Plug 'vim-airline/vim-airline'
+Plug 'Yggdroot/indentLine'
+Plug 'Shougo/deoplete.nvim'
 call plug#end()
 
 " Colors
@@ -38,3 +43,14 @@ colorscheme minimalist
 let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" indentLine
+let g:indentLine_color_term = 255
+let g:indentLine_char = '┆'
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({
+    \ 'smart_case': v:true,
+    \ 'max_list': 20,
+\ })
