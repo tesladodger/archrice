@@ -1,19 +1,19 @@
 override_git_prompt_colors() {
   GIT_PROMPT_THEME_NAME="Custom"
-  BACKG1="\e[48;5;235m"
-  FDIAMOND="\e[38;5;235m\e[38;5;255m"
-  BACKG2="\e[48;5;237m"
-  SDIAMOND="\e[38;5;237m\e[38;5;255m"
-  RESET="\[$(tput sgr0)\]"
-  FG="\e[38;5;255m"
+  # BACKG1="\e[48;5;235m"
+  # FDIAMOND="\e[38;5;235m\e[38;5;255m"
+  # BACKG2="\e[48;5;237m"
+  # SDIAMOND="\e[38;5;237m\e[38;5;255m"
+  # RESET="\[$(tput sgr0)\]"
+  # FG="\e[38;5;255m"
 
   # Time12a="\$(date +%H:%M)"
-    PathShort="${FG}${BACKG2}[\w] ${RESET}${SDIAMOND} ";
+    PathShort="${FG}${BACKG2}${Green} \w ${RESET}${SDIAMOND} ";
 
   ## These are the color definitions used by gitprompt.sh
-    GIT_PROMPT_PREFIX="[ "                 # start of the git info string
-    GIT_PROMPT_SUFFIX=" ]"                 # the end of the git info string
-    GIT_PROMPT_SEPARATOR=" | "             # separates each item
+    GIT_PROMPT_PREFIX=" "                 # start of the git info string
+    GIT_PROMPT_SUFFIX=" "                 # the end of the git info string
+    GIT_PROMPT_SEPARATOR=" "             # separates each item
 
     GIT_PROMPT_BRANCH="${Blue}"         # the git branch that is active in the current directory
     GIT_PROMPT_MASTER_BRANCH="${Magenta}" # used if the git branch that is active in the current directory is $GIT_PROMPT_MASTER_BRANCHES
@@ -29,8 +29,8 @@ override_git_prompt_colors() {
   ## For the command indicator, the placeholder _LAST_COMMAND_STATE_ 
   ## will be replaced with the exit code of the last command
   ## e.g.
-     GIT_PROMPT_COMMAND_OK="${BACKG1} ✔-_LAST_COMMAND_STATE_ ${BACKG2}${FDIAMOND}"    # indicator if the last command returned with an exit code of 0
-     GIT_PROMPT_COMMAND_FAIL="${BACKG1} ✘-_LAST_COMMAND_STATE_ ${BACKG2}${FDIAMOND}"  # indicator if the last command returned with an exit code of other than 0
+     GIT_PROMPT_COMMAND_OK="${BACKG1}\n ✔-_LAST_COMMAND_STATE_ ${BACKG2}${FDIAMOND}"    # indicator if the last command returned with an exit code of 0
+     GIT_PROMPT_COMMAND_FAIL="${BACKG1}\n ✘-_LAST_COMMAND_STATE_ ${BACKG2}${FDIAMOND}"  # indicator if the last command returned with an exit code of other than 0
 
   # GIT_PROMPT_COMMAND_OK="${Green}✔"    # indicator if the last command returned with an exit code of 0
   # GIT_PROMPT_COMMAND_FAIL="${Red}✘-_LAST_COMMAND_STATE_"    # indicator if the last command returned with an exit code of other than 0

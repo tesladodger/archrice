@@ -21,7 +21,7 @@ source ~/.bash-git-prompt/gitprompt.sh
 # DIAMOND3="\e[38;5;241m\[\e[38;5;255m\["
 GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
-PS1="${BACK1}${GREEN} \u@\h ${BACK2}${DIAMOND1} \w ${BACK3}${DIAMOND2} \$ ${RESET}${DIAMOND3}${RESET}-> "
+PS1="\n${BACK1}${GREEN} \u@\h ${BACK2}${DIAMOND1} \w ${BACK3}${DIAMOND2} \$ ${RESET}${DIAMOND3}${RESET}-> "
 
 export EDITOR=nvim
 

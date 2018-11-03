@@ -14,9 +14,9 @@ set scrolloff=4    " Start scrolling before eof
 set wrapscan       " Wrap search at eof
 set splitbelow     " Horizontal splits open below current window
 set splitright     " Vertical splits open right of new window
-
-" Show tabs
-:set list
+set tabstop=4      " Tabs are 4 characters wide
+set shiftwidth=4   " An indent equals a single tab
+set list           " Show tabs
 
 " Mappings
 :imap jj <Esc>
