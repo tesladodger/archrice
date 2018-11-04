@@ -47,7 +47,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " indentLine
-let g:indentLine_color_term = 255
+let g:indentLine_color_term = 59
 let g:indentLine_char = '┆'
 
 " Deoplete
