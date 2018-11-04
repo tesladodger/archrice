@@ -23,11 +23,9 @@ padding-left = 2
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
-font-0 = Noto Sans:size=10;2
-font-1 = Noto Sans:size=10:weight=bold;2
-font-2 = Noto Sans Mono:size=10:weight=bold;2
-font-3 = Symbols Nerd Font:size=10;2
-modules-left = i3
+font-0 = dejavusansmono:size=10;2
+font-1 = notoemoji:size=10;2
+modules-left = arch i3
 modules-center = date
 modules-right = filesystem xkeyboard memory cpu wlan eth battery
 tray-position = right
@@ -64,20 +62,33 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+ws-icon-0 = 1;爵
+ws-icon-1 = 2;ﲵ
+ws-icon-2 = 3;﬿
+ws-icon-3 = 4;ﱘ
+ws-icon-4 = 5;ﲵ
+ws-icon-5 = 6;龎
+ws-icon-default = ﬿
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
-label-focused = %index%
+label-focused = %icon% %{T7}%index%%{T-}
 label-focused-background = #003300
 label-focused-padding = 2
-label-unfocused = %index%
+label-unfocused = %icon% %{T7}%index%%{T-}
 label-unfocused-padding = 2
-label-visible = %index%
+label-visible = %index% %{T7}%index%%{T-}
 label-visible-background = ${self.label-focused-background}
 label-visible-padding = ${self.label-focused-padding}
-label-urgent = %index%
+label-urgent = %index% %{T7}%index%%{T-}
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+
+
+[module/arch]
+type = custom/text
+content = %{T6} %{T-}
+content-padding = 1
 
 
 [module/cpu]
@@ -107,7 +118,7 @@ format-disconnected =
 type = internal/network
 interface = enp0s3
 interval = 3.0
-format-connected-prefix = "eth "
+format-connected-prefix = ""
 format-disconnected =
 
 
@@ -125,13 +136,21 @@ label = %date% %time%
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 98
-
-
-[module/arch]
-type = custom/text
-content = %{T6} %{T-}
-content_padding = 1
+full-at = 100
+poll-interval = 5
+format-charging = %{A1:xfce4-power-manager-settings &:}<label-charging>  %{A}
+format-discharging = %{A1:xfce4-power-manager-settings &:}<ramp-capacity>  <label-discharging>  %{A}
+format-full = %{A1:xfce4-power-manager-settings &:}<label-full>  %{A}
+label-charging =   %{T3}%percentage%%%{T-}
+label-discharging = %{T3}%percentage%%%{T-}
+label-charging-font = 6
+label-discharging-font = 6
+label-full = %{T6}%{T-} %{T3}100%%{T-}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 
 [settings]
