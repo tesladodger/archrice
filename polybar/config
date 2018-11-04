@@ -27,7 +27,7 @@ font-0 = dejavusansmono:size=10;2
 font-1 = notoemoji:size=10;2
 modules-left = arch i3
 modules-center = date
-modules-right = filesystem xkeyboard memory cpu wlan eth battery
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery
 tray-position = right
 tray-padding = 2
 cursor-click = pointer
@@ -94,7 +94,7 @@ content-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "cpu "
+format-prefix = "cpu"
 label = %percentage:2%%
 
 
@@ -151,6 +151,23 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+; Note: max vol might go beyond 100% (but it is amplified and hence distorted).
+; We show the normalized (100%) version
+use-ui-max = false
+interval = 10
+format-volume = %{A1:pavucontrol &:}<ramp-volume>  %{A}
+format-muted = %{A1:pavucontrol &:}<label-muted>  %{A}
+label-muted = 
+label-muted-font = 4
+ramp-volume-0 = 
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+ramp-volume-3 = 
+ramp-volume-font = 5
 
 
 [settings]
