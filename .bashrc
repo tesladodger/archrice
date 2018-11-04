@@ -13,15 +13,9 @@
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 
-# BACK1="\e[48;5;237m\["
-# DIAMOND1="\e[38;5;237m\[\e[38;5;255m\["
-# BACK2="\e[48;5;239m\["
-# DIAMOND2="\e[38;5;239m\[\e[38;5;255m\["
-# BACK3="\e[48;5;241m\["
-# DIAMOND3="\e[38;5;241m\[\e[38;5;255m\["
 GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
-PS1="\n${BACK1}${GREEN} \u@\h ${BACK2}${DIAMOND1} \w ${BACK3}${DIAMOND2} \$ ${RESET}${DIAMOND3}${RESET}-> "
+PS1="\n${GREEN} \u@\h  \w  \$ ${RESET}-> "
 
 export EDITOR=nvim
 
