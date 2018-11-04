@@ -27,6 +27,7 @@ export EDITOR=nvim
 
 
 # ALIASES
+alias shutn='shutdown now'
 alias l='i3lock -f -i ~/Pictures/windowsscreen.png -p default'
 alias ls='ls --color=auto'
 alias ll='ls -lah'
