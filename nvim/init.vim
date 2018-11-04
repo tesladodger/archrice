@@ -29,8 +29,10 @@ set list           " Show tabs
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'dikiaap/minimalist'
 Plug 'vim-airline/vim-airline'
+Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 Plug 'Shougo/deoplete.nvim'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Colors
