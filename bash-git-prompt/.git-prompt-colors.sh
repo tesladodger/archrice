@@ -29,8 +29,8 @@ override_git_prompt_colors() {
   ## For the command indicator, the placeholder _LAST_COMMAND_STATE_ 
   ## will be replaced with the exit code of the last command
   ## e.g.
-  #   GIT_PROMPT_COMMAND_OK="${BACKG1}\n ✔-_LAST_COMMAND_STATE_ ${BACKG2}${FDIAMOND}"    # indicator if the last command returned with an exit code of 0
-  #   GIT_PROMPT_COMMAND_FAIL="${BACKG1}\n ✘-_LAST_COMMAND_STATE_ ${BACKG2}${FDIAMOND}"  # indicator if the last command returned with an exit code of other than 0
+      GIT_PROMPT_COMMAND_OK="\n ✔-_LAST_COMMAND_STATE_ "    # indicator if the last command returned with an exit code of 0
+      GIT_PROMPT_COMMAND_FAIL="\n ✘-_LAST_COMMAND_STATE_ "  # indicator if the last command returned with an exit code of other than 0
 
   # GIT_PROMPT_COMMAND_OK="${Green}✔"    # indicator if the last command returned with an exit code of 0
   # GIT_PROMPT_COMMAND_FAIL="${Red}✘-_LAST_COMMAND_STATE_"    # indicator if the last command returned with an exit code of other than 0
@@ -48,8 +48,8 @@ override_git_prompt_colors() {
   ## _LAST_COMMAND_INDICATOR_ will be replaced by the appropriate GIT_PROMPT_COMMAND_OK OR GIT_PROMPT_COMMAND_FAIL
   # GIT_PROMPT_START_USER="_LAST_COMMAND_INDICATOR_ ${Yellow}${PathShort}${ResetColor}"
   # GIT_PROMPT_START_ROOT="_LAST_COMMAND_INDICATOR_ ${GIT_PROMPT_START_USER}"
-  # GIT_PROMPT_END_USER=" \n${White}${Time12a}${ResetColor} $ "
-  # GIT_PROMPT_END_ROOT=" \n${White}${Time12a}${ResetColor} # "
+    GIT_PROMPT_END_USER=" \n${Green}${Time12a}${ResetColor} $ "
+    GIT_PROMPT_END_ROOT=" \n${Green}${Time12a}${ResetColor} # "
 
   ## Please do not add colors to these symbols
   # GIT_PROMPT_SYMBOLS_AHEAD="↑·"             # The symbol for "n versions ahead of origin"
