@@ -41,6 +41,9 @@ syntax on
 set encoding=utf-8
 colorscheme minimalist
 
+" Polyglot
+let g:polyglot_disabled = ['latex']
+
 " Airline
 let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
