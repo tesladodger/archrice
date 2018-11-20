@@ -45,6 +45,7 @@ alias gitp='git push'
 alias gitpl='git pull'
 alias gitcl='git clone'
 alias gitco='git checkout'
+alias gitgud='git fetch origin && git reset --hard origin/master'
 
 # ls COLORS
 LS_COLORS=$LS_COLORS:'ex=0;92:''di=0;94' ;
