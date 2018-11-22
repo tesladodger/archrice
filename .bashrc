@@ -39,6 +39,7 @@ alias mv='mv -v'
 alias cp='cp -v'
 # Git
 alias gits='git status'
+alias gitdf='git diff'
 alias gitc='git commit'
 alias gita='git add'
 alias gitp='git push'
