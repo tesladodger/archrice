@@ -1,25 +1,39 @@
 " Settings
 set nocompatible
-set autoindent     " Copy indent from last line
-set cursorline	   " Highlight current line
-set number         " Line number
-set autoread       " Read when file is changed elsewhere
-set noerrorbells   " Turn off audio errors
-set visualbell     " Turn on visual errors
-set noshowmode     " Mode will be displayed by airline
-set shortmess=atI  " Turn off intro message
-set hlsearch       " Highlight searches
-set incsearch      " Highlight as search is typped
-set scrolloff=4    " Start scrolling before eof
-set wrapscan       " Wrap search at eof
-set splitbelow     " Horizontal splits open below current window
-set splitright     " Vertical splits open right of new window
-set tabstop=4      " Tabs are 4 characters wide
-set shiftwidth=4   " An indent equals a single tab
-set list           " Show tabs
+set autoindent     " Copy indent from last line;
+set cursorline	   " Highlight current line;
+set number         " Line number;
+set autoread       " Read when file is changed elsewhere;
+set noerrorbells   " Turn off audio errors;
+set visualbell     " Turn on visual errors;
+set noshowmode     " Mode will be displayed by airline;
+set shortmess=atI  " Turn off intro message;
+set hlsearch       " Highlight searches;
+set incsearch      " Highlight as search is typped;
+set scrolloff=4    " Start scrolling before eof;
+set wrapscan       " Wrap search at eof;
+set splitbelow     " Horizontal splits open below current window;
+set splitright     " Vertical splits open right of new window;
+set tabstop=4      " Tabs are 4 characters wide;
+set shiftwidth=4   " An indent equals a single tab;
+set list           " Show tabs;
 
 " Mappings
-:imap jj <Esc>
+:map <up> <nop>
+:map <down> <nop>
+:map <left> <nop>
+:map <right> <nop>
+:imap <up> <nop>
+:imap <down> <nop>
+:imap <left> <nop>
+:imap <right> <nop>
+:imap jh <Backspace>
+:imap jj <Esc>o
+:imap jk <Esc>O
+:imap jl <Esc>
+:inoremap <F2> <esc>mm$a;<esc>`ma
+:nnoremap <F2> <esc>mm$a;<esc>`m
+:nnoremap <space> :b#<CR>
 :nnoremap <C-J> <C-W><C-J>
 :nnoremap <C-K> <C-W><C-K>
 :nnoremap <C-L> <C-W><C-L>
