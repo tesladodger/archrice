@@ -1,7 +1,7 @@
 " Settings
 set nocompatible
 set autoindent     " Copy indent from last line;
-set cursorline	   " Highlight current line;
+set cursorline     " Highlight current line;
 set number         " Line number;
 set autoread       " Read when file is changed elsewhere;
 set noerrorbells   " Turn off audio errors;
@@ -14,6 +14,7 @@ set scrolloff=4    " Start scrolling before eof;
 set wrapscan       " Wrap search at eof;
 set splitbelow     " Horizontal splits open below current window;
 set splitright     " Vertical splits open right of new window;
+set expandtab      " Turn tabs into spaces
 set tabstop=4      " Tabs are 4 characters wide;
 set shiftwidth=4   " An indent equals a single tab;
 set list           " Show tabs;
@@ -39,6 +40,13 @@ set list           " Show tabs;
 :nnoremap <C-L> <C-W><C-L>
 :nnoremap <C-H> <C-W><C-H>
 
+" Commands
+com! -bar PU call s:plugins_update()
+fu! s:plugins_update() abort
+    PlugUpdate
+    PlugUpgrade
+endfu
+
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'dikiaap/minimalist'
@@ -47,6 +55,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-surround'
+Plug 'simeji/winresizer'
 call plug#end()
 
 " Colors
