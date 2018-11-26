@@ -24,10 +24,6 @@ set list           " Show tabs;
 :map <down> <nop>
 :map <left> <nop>
 :map <right> <nop>
-:imap <up> <nop>
-:imap <down> <nop>
-:imap <left> <nop>
-:imap <right> <nop>
 :imap jh <Backspace>
 :imap jj <Esc>o
 :imap jk <Esc>O
@@ -43,6 +39,7 @@ set list           " Show tabs;
 " Commands
 com! -bar PU call s:plugins_update()
 fu! s:plugins_update() abort
+    UpdateRemotePlugins
     PlugUpdate
     PlugUpgrade
 endfu
@@ -56,6 +53,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-surround'
 Plug 'simeji/winresizer'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " Colors
@@ -74,7 +72,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " indentLine
 let g:indentLine_color_term = 59
-let g:indentLine_char = '┆'
+let g:indentLine_char = '>'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -82,3 +80,5 @@ call deoplete#custom#option({
     \ 'smart_case': v:true,
     \ 'max_list': 20,
 \ })
+highlight Pmenu ctermbg=59 guibg=#131313
+highlight PmenuSel ctermbg=243 guibg=#141414
