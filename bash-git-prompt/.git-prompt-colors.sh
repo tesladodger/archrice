@@ -29,8 +29,8 @@ override_git_prompt_colors() {
   ## For the command indicator, the placeholder _LAST_COMMAND_STATE_ 
   ## will be replaced with the exit code of the last command
   ## e.g.
-      GIT_PROMPT_COMMAND_OK="\n ✔-_LAST_COMMAND_STATE_ "    # indicator if the last command returned with an exit code of 0
-      GIT_PROMPT_COMMAND_FAIL="\n ✘-_LAST_COMMAND_STATE_ "  # indicator if the last command returned with an exit code of other than 0
+      GIT_PROMPT_COMMAND_OK="\n${Green} ✔-_LAST_COMMAND_STATE_ "    # indicator if the last command returned with an exit code of 0
+      GIT_PROMPT_COMMAND_FAIL="\n${Red} ✘-_LAST_COMMAND_STATE_ "  # indicator if the last command returned with an exit code of other than 0
 
   # GIT_PROMPT_COMMAND_OK="${Green}✔"    # indicator if the last command returned with an exit code of 0
   # GIT_PROMPT_COMMAND_FAIL="${Red}✘-_LAST_COMMAND_STATE_"    # indicator if the last command returned with an exit code of other than 0
