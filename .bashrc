@@ -39,6 +39,10 @@ alias c='clear'
 alias rm='rm -iv'
 alias mv='mv -v'
 alias cp='cp -v'
+# Keyboard layout
+alias us='setxkbmap -layout us'
+alias pt='setxkbmap -layout pt'
+alias dvorak='setxkbmap -layout dvorak'
 # Git
 alias gits='git status'
 alias gitdf='git diff'
