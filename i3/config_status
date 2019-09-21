@@ -2,7 +2,7 @@ general {
     output_format = "i3bar"
     colors = true
     color_good = "#ffffff"
-    color_bad = "#ff9090"
+    color_bad = "#aaaaaa"
     interval = 1
 }
 
