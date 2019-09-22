@@ -85,12 +85,12 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:爵"
-set $ws2 "2:ﲵ"
-set $ws3 "3:﬿"
-set $ws4 "4:ﱘ"
-set $ws5 "5:ﲵ"
-set $ws6 "6:爵"
+set $ws1 "1:<span size='large'>爵</span>"
+set $ws2 "2:<span size='large'>ﲵ</span>"
+set $ws3 "3:<span size='large'>﬿</span>"
+set $ws4 "4:<span size='large'>ﱘ</span>"
+set $ws5 "5:<span size='large'>ﲵ</span>"
+set $ws6 "6:<span size='large'>爵</span>"
 set $ws7 "7:7"
 set $ws8 "8:8"
 set $ws9 "9:9"
@@ -173,8 +173,8 @@ exec "setxkbmap -layout dvorak"
 exec --no-startup-id xmodmap /home/fishdo/.Xmodmap
 
 for_window [class="^.*"] border pixel 1
-gaps inner 6
-gaps outer -6
+gaps inner 4
+gaps outer -4
 smart_gaps on
 smart_borders on
 
