@@ -16,7 +16,6 @@ set splitright
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set list
 set encoding=utf-8
 set background=dark
 
@@ -41,6 +40,7 @@ set background=dark
 "   PlugStatus
 call plug#begin('~/.vim/plugged')
 
+Plug 'ycm-core/YouCompleteMe'
 Plug 'dikiaap/minimalist'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -54,6 +54,8 @@ call plug#end()
 let g:airline_theme='deus'
 "let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled = 1
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 
 set t_Co=256

@@ -10,39 +10,27 @@
 [[ $- != *i* ]] && return
 
 
-GIT_PROMPT_ONLY_IN_REPO=1
-source ~/.bash-git-prompt/gitprompt.sh
 
 GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
 PS1="\n${GREEN} \u@\h  \w  \$ ${RESET}-> "
 
-export EDITOR=nvim
-
 
 # ALIASES
 alias shutn='shutdown now'
-alias l='i3lock -f -i ~/Pictures/windowsscreen.png -p default'
+alias xmm='xmodmap .Xmodmap'
 alias ls='ls --color=auto'
 alias ll='ls -lah'
-alias u='cd ~'
+alias h='cd ~'
 alias b='cd ..'
-alias b2='cd ../..'
-alias b3='cd ../../..'
+alias bb='cd ../..'
+alias bbb='cd ../../..'
 alias firefox='firefox & q'
-alias matrix='./unimatrix.py'
-alias vim='nvim'
-alias todo='~/github/todo/todo.py'
-alias qute='qutebrowser & q'
 alias q='exit'
 alias c='clear'
 alias rm='rm -iv'
 alias mv='mv -v'
 alias cp='cp -v'
-# Keyboard layout
-alias us='setxkbmap -layout us'
-alias pt='setxkbmap -layout pt'
-alias dvorak='setxkbmap -layout dvorak'
 # Git
 alias gits='git status'
 alias gitdf='git diff'
