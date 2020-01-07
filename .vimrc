@@ -16,6 +16,7 @@ set splitright
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set list
 set encoding=utf-8
 set background=dark
 
@@ -30,6 +31,8 @@ set background=dark
 :imap jj <Esc>o
 :imap jk <Esc>O
 :imap jl <Esc>
+
+:inoremap {<CR> {<CR>}<ESC>O
 
 
 " Pluggins
