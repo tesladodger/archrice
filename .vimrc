@@ -1,31 +1,42 @@
-" Settings
+" -------- "
+" Settings "
+" -------- "
 set autoindent
-set cursorline
-set number
 set autoread
-set noerrorbells
-set visualbell
-set noshowmode
-set shortmess=atI
+set background=dark
+set backspace=indent,eol,start
+set cursorline
+set encoding=utf-8
+set expandtab
 set hlsearch
 set incsearch
+set lazyredraw
+set list
+set noerrorbells
+set noshowmode
+set number
 set scrolloff=4
-set wrapscan
+set shiftwidth=4
+set shortmess=atI
 set splitbelow
 set splitright
-set expandtab
 set tabstop=4
-set shiftwidth=4
-set list
-set encoding=utf-8
-set background=dark
+set visualbell
+set wrapscan
 
 
-" Mappings
+" -------- "
+" Mappings "
+" -------- "
 :map <up> <nop>
 :map <down> <nop>
 :map <left> <nop>
 :map <right> <nop>
+
+:nnoremap <C-J> <C-W><C-J>
+:nnoremap <C-K> <C-W><C-K>
+:nnoremap <C-L> <C-W><C-L>
+:nnoremap <C-H> <C-W><C-H>
 
 :imap jh <Backspace>
 :imap jj <Esc>o
@@ -34,8 +45,13 @@ set background=dark
 
 :inoremap {<CR> {<CR>}<ESC>O
 
+" full substitution of visual selection
+:xnoremap gs y:%s/<C-r>"//g<Left><Left>
 
-" Pluggins
+
+" -------- "
+" Pluggins "
+" -------- "
 " commands:
 "   PlugInstall [name ...] [#threads]
 "   PlugUpdate [name ...] [#threads]
@@ -51,7 +67,9 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 
-" Pluggin Settings
+" ---------------- "
+" Pluggin Settings "
+" ---------------- "
 
 " Airline
 let g:airline_theme='deus'
