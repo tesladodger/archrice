@@ -22,7 +22,7 @@ order += "volume master"
 volume master {
         format = "♪: %volume"
         format_muted = "♪: muted (%volume)"
-        device = "default"
+        device = "sysdefault"
         mixer = "Master"
 }
 
