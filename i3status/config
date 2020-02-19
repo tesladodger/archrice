@@ -16,18 +16,11 @@ order += "cpu_temperature 0"
 order += "memory"
 order += "load"
 order += "tztime local"
-order += "sound"
 
 
 wireless wlp3s0 {
     format_up = " %quality at %essid "
     format_down = " W: down "
-}
-
-
-sound {
-    command = bash ~/.config/i3/volume
-    interval 1
 }
 
 
