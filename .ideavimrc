@@ -1,0 +1,4 @@
+:imap jj <Esc>o
+:imap jk <Esc>O
+:imap jl <Esc>
+:xnoremap gs y:%s/<C-r>"//g<Left><Left>

@@ -24,6 +24,8 @@ set tabstop=4
 set visualbell
 set wrapscan
 
+"Automatically insert newline in LaTeX
+autocmd Filetype tex setlocal textwidth=90
 
 " -------- "
 " Mappings "
@@ -48,7 +50,6 @@ set wrapscan
 " full substitution of visual selection
 :xnoremap gs y:%s/<C-r>"//g<Left><Left>
 
-
 " -------- "
 " Pluggins "
 " -------- "
@@ -66,7 +67,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-
 " ---------------- "
 " Pluggin Settings "
 " ---------------- "
@@ -77,7 +77,6 @@ let g:airline_theme='deus'
 "let g:airline#extensions#tabline#enabled = 1
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-
 
 set t_Co=256
 syntax on
