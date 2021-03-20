@@ -14,6 +14,7 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias compoff='xfconf-query -c xfwm4 -p /general/use_compositing -s false'
 alias compon='xfconf-query -c xfwm4 -p /general/use_compositing -s true'
+alias proton='sudo protonvpn c --cc nl'
 #Keyboards
 alias us='setxkmap -layout us'
 alias dv='setxkmap -layout dvorak'
