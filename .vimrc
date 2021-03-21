@@ -13,8 +13,10 @@ set incsearch
 set lazyredraw
 set list
 set noerrorbells
+set nomodeline
 set noshowmode
 set number
+set relativenumber
 set scrolloff=4
 set shiftwidth=4
 set shortmess=atI
@@ -23,6 +25,7 @@ set splitright
 set tabstop=4
 set visualbell
 set wrapscan
+filetype plugin indent on
 
 "Automatically insert newline in LaTeX
 autocmd Filetype tex setlocal textwidth=90
@@ -39,6 +42,8 @@ autocmd Filetype tex setlocal textwidth=90
 :nnoremap <C-K> <C-W><C-K>
 :nnoremap <C-L> <C-W><C-L>
 :nnoremap <C-H> <C-W><C-H>
+:nnoremap vt :vert term<CR>
+:nnoremap ht :ter<CR>
 
 :imap jh <Backspace>
 :imap jj <Esc>o
@@ -65,6 +70,7 @@ Plug 'dense-analysis/ale'
 Plug 'dikiaap/minimalist'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -78,7 +84,13 @@ let g:airline#extensions#ale#enabled = 1
 "let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled = 1
 
+" YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+" NerdTree
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
 
 set t_Co=256
 syntax on
