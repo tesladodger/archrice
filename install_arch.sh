@@ -18,6 +18,7 @@ printf "DONE\n"
 
 printf "%-40s" ".vim/after/syntax/tex/tex.vim"
 find ~/.vim/after/syntax/tex/tex.vim -delete >/dev/null 2>&1
+mkdir -p ~/.vim/after/syntax/tex
 ln -s ${path}/tex.vim ~/.vim/after/syntax/tex/tex.vim
 printf "%40s\n" "DONE"
 
