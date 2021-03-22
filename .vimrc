@@ -43,7 +43,7 @@ autocmd Filetype tex setlocal textwidth=90
 :nnoremap <C-L> <C-W><C-L>
 :nnoremap <C-H> <C-W><C-H>
 :nnoremap vt :vert term<CR>
-:nnoremap ht :ter<CR>
+:nnoremap tt :ter<CR>
 
 :imap jh <Backspace>
 :imap jj <Esc>o
@@ -79,17 +79,27 @@ call plug#end()
 " ---------------- "
 
 " Airline
+" --------
 let g:airline_theme='deus'
 let g:airline#extensions#ale#enabled = 1
 "let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled = 1
 
 " YouCompleteMe
+" --------
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " NerdTree
+" --------
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+" Close vim when NERDTree is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" highlight script in ~/.vim/after/syntax/nerdtree.vim
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
 
 set t_Co=256
