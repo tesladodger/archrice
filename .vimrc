@@ -7,21 +7,21 @@ set background=dark
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf-8
-set expandtab
+set expandtab "replace tabs with spaces
 set hlsearch
-set incsearch
-set lazyredraw
-set list
+set incsearch "show search matches while typing
+set lazyredraw "don't redraw while running macros, registers, or any non-typed commands
+set list "show tabs
 set noerrorbells
 set nomodeline
 set noshowmode
-set number
-set relativenumber
+set number "line number
+set relativenumber "relative line numbers
 set scrolloff=4
 set shiftwidth=4
 set shortmess=atI
-set splitbelow
-set splitright
+set splitbelow "split below instead of over
+set splitright "vsplit right instead of left
 set tabstop=4
 set visualbell
 set wrapscan
@@ -50,10 +50,14 @@ autocmd Filetype tex setlocal textwidth=90
 :imap jk <Esc>O
 :imap jl <Esc>
 
+" automatic right bracket and tab
 :inoremap {<CR> {<CR>}<ESC>O
 
 " full substitution of visual selection
 :xnoremap gs y:%s/<C-r>"//g<Left><Left>
+
+" c main (type 'main' in normal mode)
+autocmd Filetype c nnoremap main o<CR>int<Space>main<Space>(int<Space>argc,<Space>char*<Space>argv[])<Space>{<CR>}<ESC>O
 
 " -------- "
 " Pluggins "
@@ -78,6 +82,10 @@ call plug#end()
 " Pluggin Settings "
 " ---------------- "
 
+" Ale
+" --------
+
+
 " Airline
 " --------
 let g:airline_theme='deus'
@@ -91,6 +99,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " NerdTree
 " --------
+let g:NERDTreeShowHidden = 1
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
