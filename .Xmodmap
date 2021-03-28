@@ -1,8 +1,11 @@
+! Capslock to backspace and shift+capslock to capslock
 remove Lock = Caps_Lock
 keycode 66 = BackSpace Caps_Lock BackSpace BackSpace
 
+! Backspace to delete
 keycode 22 = Delete NoSymbol Delete
 
+! Various key re-mappings for convenience
 keycode 20 = bracketleft less bracketleft less
 keycode 21 = bracketright greater bracketright greater
 

@@ -7,28 +7,40 @@ set background=dark
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf-8
-set expandtab "replace tabs with spaces
+set expandtab       " replace tabs with spaces
 set hlsearch
-set incsearch "show search matches while typing
-set lazyredraw "don't redraw while running macros, registers, or any non-typed commands
-set list "show tabs
+set incsearch       " show search matches while typing
+set lazyredraw      " don't redraw while running macros, registers, or any non-typed commands
+set list            " show tabs
 set noerrorbells
 set nomodeline
 set noshowmode
-set number "line number
-set relativenumber "relative line numbers
+set relativenumber  " relative line numbers
 set scrolloff=4
 set shiftwidth=4
 set shortmess=atI
-set splitbelow "split below instead of over
-set splitright "vsplit right instead of left
+set splitbelow      " split below instead of over
+set splitright      " vsplit right instead of left
 set tabstop=4
 set visualbell
 set wrapscan
 filetype plugin indent on
 
-"Automatically insert newline in LaTeX
-autocmd Filetype tex setlocal textwidth=90
+" Absolute number on command mode, back to relative on exit
+au CmdLineEnter * set norelativenumber | set number   | redraw
+au CmdLineLeave * set relativenumber   | set nonumber
+
+" -------------------------- "
+" Filetype specific settings "
+" -------------------------- "
+" tex -  automatically insert newline at 90 chars
+autocmd Filetype tex setlocal textwidth = 90
+
+" c - main (type 'main' in normal mode)
+autocmd Filetype c nnoremap main o<CR>int<Space>main<Space>(int<Space>argc,<Space>char*<Space>argv[])<Space>{<CR>}<ESC>O
+
+" c - compile and run (F4) in a split terminal
+autocmd filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r.out && %:p:r.out<CR>
 
 " -------- "
 " Mappings "
@@ -55,12 +67,6 @@ autocmd Filetype tex setlocal textwidth=90
 
 " full substitution of visual selection
 :xnoremap gs y:%s/<C-r>"//g<Left><Left>
-
-" c main (type 'main' in normal mode)
-autocmd Filetype c nnoremap main o<CR>int<Space>main<Space>(int<Space>argc,<Space>char*<Space>argv[])<Space>{<CR>}<ESC>O
-
-" c compile and run (F4) in a split terminal
-autocmd filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r && %:p:r<CR>
 
 " -------- "
 " Pluggins "
