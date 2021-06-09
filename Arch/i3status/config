@@ -18,7 +18,6 @@ order += "load"
 order += "tztime local"
 order += "volume master"
 
-
 volume master {
         format = " ♪: %volume   "
         format_muted = "♪: muted (%volume)"
@@ -26,24 +25,20 @@ volume master {
         mixer = "Master"
 }
 
-
 wireless wlp3s0 {
     format_up = " %quality at %essid "
     format_down = " W: down "
 }
-
 
 ipv6 {
     format_up = " %ip "
     format_down = " no IPv6 "
 }
 
-
 ethernet enp2s0f2 {
     format_up = " <span size='large'></span> (%speed) %ip "
     format_down = " <span size='large'></span> down "
 }
-
 
 battery 0 {
     format = " %status %percentage %remaining "
@@ -56,27 +51,22 @@ battery 0 {
     low_threshold = 10
 }
 
-
 tztime local {
     format = " %Y-%m-%d %H:%M:%S "
 }
 
-
 load {
     format = " L: %5min "
 }
-
 
 cpu_temperature 0 {
     format = " %degrees°C "
     path = "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input"
 }
 
-
 memory {
     format = " M: %used "
 }
-
 
 disk "/" {
     format = " / %free "
