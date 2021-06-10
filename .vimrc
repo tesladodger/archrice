@@ -43,6 +43,14 @@ autocmd Filetype c nnoremap main o<CR>int<Space>main<Space>(int<Space>argc,<Spac
 " c - compile and run (F4) in a split terminal
 autocmd filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r.out && %:p:r.out<CR>
 
+" -------------- "
+" File templates "
+" -------------- "
+augroup templates
+    au!
+    autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
+augroup END
+
 " -------- "
 " Mappings "
 " -------- "
