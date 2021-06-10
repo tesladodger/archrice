@@ -37,9 +37,6 @@ au CmdLineLeave * set relativenumber   | set nonumber
 " tex -  automatically insert newline at 90 chars
 autocmd Filetype tex setlocal textwidth=90
 
-" c - main (type 'main' in normal mode)
-autocmd Filetype c nnoremap main o<CR>int<Space>main<Space>(int<Space>argc,<Space>char*<Space>argv[])<Space>{<CR>}<ESC>O
-
 " c - compile and run (F4) in a split terminal
 autocmd filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r.out && %:p:r.out<CR>
 
