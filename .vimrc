@@ -2,6 +2,8 @@
 " Settings "
 " -------- "
 set autoindent
+set smartindent
+set cindent
 set autoread
 set background=dark
 set backspace=indent,eol,start
@@ -34,8 +36,10 @@ au CmdLineLeave * set relativenumber   | set nonumber
 " -------------------------- "
 " Filetype specific settings "
 " -------------------------- "
-" tex -  automatically insert newline at 90 chars
+" tex - automatically insert newline at 90 chars
 autocmd Filetype tex setlocal textwidth=90
+" tex - compile (f4) in a split terminal
+autocmd Filetype tex nnoremap <F4> :w<bar>term ++shell pdflatex %:p<CR>
 
 " c - compile and run (F4) in a split terminal
 autocmd filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r.out && %:p:r.out<CR>
@@ -99,6 +103,7 @@ call plug#end()
 
 " Ale
 " --------
+let g:syntastic_tex_checkers = ['lacheck']
 
 
 " Airline
