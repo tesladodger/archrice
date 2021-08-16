@@ -23,22 +23,22 @@
 \usepackage{xcolor}
 \definecolor{codegray}{rgb}{0.9,0.9,0.9}
 \lstset{basicstyle=\ttfamily,
-    showstringspaces=false,⏎
-    numbers=left,⏎
-    numberstyle=\tiny,⏎
-    numbersep=10pt,⏎
-    firstnumber=auto,⏎
-    commentstyle=,⏎
-    keywordstyle=\color{blue},⏎
-    stringstyle=\color{teal},⏎
-    backgroundcolor=\color{codegray}⏎
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=10pt,
+    firstnumber=auto,
+    commentstyle=,
+    keywordstyle=\color{blue},
+    stringstyle=\color{teal},
+    backgroundcolor=\color{codegray}
 }
 %lstloadlanguages{}
 \makeatletter
 \xpretocmd\lstinline{\Colorbox{codegray}\bgroup\appto\lst@DeInit{\egroup}}{}{}
 \makeatother
 
-\usepackage[backend=bibtex0, sorting=none]{biblatex}
+\usepackage[backend=bibtex8, sorting=none]{biblatex}
 %\addlibresource{bib.bib}
 \usepackage{csquotes}
 
