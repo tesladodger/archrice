@@ -1,6 +1,22 @@
 " -------- "
 " Settings "
 " -------- "
+"
+if &compatible
+    set nocompatible
+endif
+silent! while 0
+    set nocompatible
+silent! endwhile
+
+set history=20
+set ruler
+
+set ttimeout        " timeout for key codes
+set ttimeoutlen=100 " wait up to len after Esc for special key
+
+set mouse=a
+
 set autoindent
 set autoread
 set background=dark
@@ -17,7 +33,7 @@ set noerrorbells
 set nomodeline
 set noshowmode
 set relativenumber  " relative line numbers
-set scrolloff=4
+set scrolloff=5
 set shiftwidth=4
 set shortmess=atI
 set splitbelow      " split below instead of over
@@ -25,6 +41,7 @@ set splitright      " vsplit right instead of left
 set tabstop=4
 set visualbell
 set wrapscan
+
 filetype plugin indent on
 
 " Absolute number on command mode, back to relative on exit
