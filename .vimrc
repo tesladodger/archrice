@@ -77,6 +77,8 @@ endfunction
 autocmd Filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r.out && %:p:r.out<CR>
 " typescriptreact - indentation
 autocmd Filetype typescriptreact setlocal shiftwidth=2
+" gitcommit - spell checking
+autocmd Filetype gitcommit setlocal spell spelllang=en
 
 " -------------- "
 " File templates "
