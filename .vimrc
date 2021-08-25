@@ -3,7 +3,6 @@
 " -------- "
 " Settings "
 " -------- "
-"
 if &compatible
     set nocompatible
 endif
@@ -11,7 +10,7 @@ silent! while 0
     set nocompatible
 silent! endwhile
 
-set history=20
+set history=50
 set ruler
 
 set ttimeout        " timeout for key codes
@@ -64,7 +63,6 @@ au CmdLineLeave * set relativenumber   | set nonumber
 " Filetype specific settings and mappings "
 " --------------------------------------- "
 " Tex setup
-autocmd Filetype tex call Tex_setup()
 function! Tex_setup()
     " automatic newline at 90 chars
     setlocal textwidth=90
@@ -73,10 +71,12 @@ function! Tex_setup()
     " set spell checking
     setlocal spell
 endfunction
+autocmd Filetype tex call Tex_setup()
+
 " c - compile and run (F4) in a split terminal
 autocmd Filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r.out && %:p:r.out<CR>
 " typescriptreact - indentation
-autocmd Filetype typescriptreact setlocal shiftwidth=2
+autocmd Filetype typescriptreact setlocal shiftwidth=2 tabstop=2
 " gitcommit - spell checking
 autocmd Filetype gitcommit setlocal spell spelllang=en
 
@@ -117,12 +117,23 @@ augroup END
 " automatic brackets
 :inoremap {<CR> {<CR>}<ESC>O
 :inoremap (<CR> (<CR>)<ESC>O
-:inoremap ( ()<Left>
-:inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+:inoremap [<CR> [<CR>]<ESC>O
 :inoremap { {}<Left>
+:inoremap ( ()<Left>
+:inoremap [ []<Left>
 :inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+:inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+:inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 :inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'<Left>"
 :inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"<Left>"
+
+" automatic closing tags
+function s:CompleteTags()
+  inoremap <buffer> > ></<C-x><C-o><Esc>:startinsert!<CR><C-O>?</<CR>
+  inoremap <buffer> ><Leader> >
+  inoremap <buffer> ><CR> ></<C-x><C-o><Esc>:startinsert!<CR><C-O>?</<CR><CR><Tab><CR><Up><C-O>$
+endfunction
+autocmd BufRead,BufNewFile *.tsx,*.html,*.js,*.xml call s:CompleteTags()
 
 " full substitution of visual selection
 :xnoremap gs y:%s/<C-r>"//g<Left><Left>
@@ -160,7 +171,6 @@ call plug#end()
 " ---------------- "
 " Pluggin Settings "
 " ---------------- "
-
 " Ale
 " ---
 let g:syntastic_tex_checkers = ['lacheck']
@@ -169,7 +179,6 @@ let g:syntastic_tex_checkers = ['lacheck']
 " -------
 let g:airline_theme='deus'
 let g:airline#extensions#ale#enabled = 1
-"let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
@@ -194,3 +203,4 @@ let g:NERDTreeGitStatusConcealBrackets = 1
 " Minimalist
 " ----------
 colorscheme minimalist
+
