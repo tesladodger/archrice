@@ -38,7 +38,7 @@ set expandtab       " replace tabs with spaces
 set hlsearch
 set incsearch       " show search matches while typing
 set lazyredraw      " don't redraw while running macros, registers, or any non-typed commands
-set list            " show tabs
+" set list            " show tabs
 set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
 set noerrorbells
 set nomodeline
@@ -50,7 +50,7 @@ set splitbelow      " split below instead of over
 set splitright      " vsplit right instead of left
 set visualbell
 set wrapscan
-set hidden
+set hidden          " don't force saving when changing buffer
 
 " access command line wildmenu with Tab
 set wildchar=<Tab> wildmenu wildmode=full
@@ -58,6 +58,83 @@ set wildchar=<Tab> wildmenu wildmode=full
 " Absolute number on command mode, back to relative on exit
 au CmdLineEnter * set norelativenumber | set number   | redraw
 au CmdLineLeave * set relativenumber   | set nonumber
+
+" -------------- "
+" File templates "
+" -------------- "
+augroup templates
+    au!
+    autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
+augroup END
+
+" -------- "
+" Mappings "
+" -------- "
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Switch windows with Control+[movement key]
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" Close current window with Control+q
+noremap <C-Q> <C-W><C-Q>
+" Close all other windows with Control+o
+noremap <C-O> <C-W><C-O>
+
+nnoremap vt :vert term<CR>
+nnoremap tt :ter<CR>
+
+imap jh <Backspace>
+imap jj <Esc>o
+imap jk <Esc>O
+imap jl <Esc>
+
+" automatic brackets
+inoremap {<CR> {<CR>}<ESC>O
+inoremap (<CR> (<CR>)<ESC>O
+inoremap [<CR> [<CR>]<ESC>O
+inoremap { {}<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'<Left>"
+inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"<Left>"
+
+function! GetPreCursorChar()
+    if col('.') <= 1
+        return ''
+    endif
+    let before_cursor = getline('.')[:col('.')-2]
+    return strcharpart(before_cursor, strchars(before_cursor)-1)
+endfunction
+
+" automatic closing tags
+function s:CompleteTags()
+    " fix '=>' closing tag in typescript
+    inoremap <buffer> <expr> > GetPreCursorChar() == "="
+                \   ? ">"
+                \   : "></\<C-x>\<C-o>\<Esc>:startinsert!\<CR>\<C-O>?</\<CR>"
+    inoremap <buffer> ><Leader> >
+    inoremap <buffer> ><CR> ></<C-x><C-o><Esc>:startinsert!<CR><C-O>?</<CR><CR><Tab><CR><Up><C-O>$
+endfunction
+autocmd BufRead,BufNewFile *.tsx,*.html,*.js,*.xml call s:CompleteTags()
+
+" full substitution of visual selection
+xnoremap gs y:%s/<C-r>"//g<Left><Left>
+
+" change content inside parentheses or brackets with dp, db, cp, cb, etc
+onoremap b i[|
+onoremap p i(|
+
+" bring search results to midscreen
+nnoremap n nzz
+nnoremap N Nzz
 
 " --------------------------------------- "
 " Filetype specific settings and mappings "
@@ -73,87 +150,14 @@ function! Tex_setup()
 endfunction
 autocmd Filetype tex call Tex_setup()
 
+" vim - disable automatic closing '"'
+autocmd Filetype vim iunmap "
 " c - compile and run (F4) in a split terminal
 autocmd Filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r.out && %:p:r.out<CR>
 " typescriptreact - indentation
 autocmd Filetype typescriptreact setlocal shiftwidth=2 tabstop=2
 " gitcommit - spell checking
 autocmd Filetype gitcommit setlocal spell spelllang=en
-
-" -------------- "
-" File templates "
-" -------------- "
-augroup templates
-    au!
-    autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
-augroup END
-
-" -------- "
-" Mappings "
-" -------- "
-:map <up> <nop>
-:map <down> <nop>
-:map <left> <nop>
-:map <right> <nop>
-
-" Switch windows with Control+[movement key]
-:nnoremap <C-J> <C-W><C-J>
-:nnoremap <C-K> <C-W><C-K>
-:nnoremap <C-L> <C-W><C-L>
-:nnoremap <C-H> <C-W><C-H>
-" Close current window with Control+q
-:noremap <C-Q> <C-W><C-Q>
-" Close all other windows with Control+o
-:noremap <C-O> <C-W><C-O>
-
-:nnoremap vt :vert term<CR>
-:nnoremap tt :ter<CR>
-
-:imap jh <Backspace>
-:imap jj <Esc>o
-:imap jk <Esc>O
-:imap jl <Esc>
-
-" automatic brackets
-:inoremap {<CR> {<CR>}<ESC>O
-:inoremap (<CR> (<CR>)<ESC>O
-:inoremap [<CR> [<CR>]<ESC>O
-:inoremap { {}<Left>
-:inoremap ( ()<Left>
-:inoremap [ []<Left>
-:inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
-:inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
-:inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
-:inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'<Left>"
-:inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"<Left>"
-
-function! GetPreCursorChar()
-    if col('.') <= 1
-        return ''
-    endif
-    let before_cursor = getline('.')[:col('.')-2]
-    return strcharpart(before_cursor, strchars(before_cursor)-1)
-endfunction
-
-" automatic closing tags
-function s:CompleteTags()
-    " fix '=>' closing tag in typescript
-    inoremap <buffer> <expr> > GetPreCursorChar() == "=" ? ">" : "></\<C-x>\<C-o>\<Esc>:startinsert!\<CR>\<C-O>?</\<CR>"
-    inoremap <buffer> ><Leader> >
-    inoremap <buffer> ><CR> ></<C-x><C-o><Esc>:startinsert!<CR><C-O>?</<CR><CR><Tab><CR><Up><C-O>$
-endfunction
-autocmd BufRead,BufNewFile *.tsx,*.html,*.js,*.xml call s:CompleteTags()
-
-" full substitution of visual selection
-:xnoremap gs y:%s/<C-r>"//g<Left><Left>
-
-" change content inside parentheses or brackets with dp, db, cp, cb, etc
-:onoremap b i[|
-:onoremap p i(|
-
-" bring search results to midscreen
-:nnoremap n nzz
-:nnoremap N Nzz
 
 " -------- "
 " Pluggins "
