@@ -127,11 +127,20 @@ augroup END
 :inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'<Left>"
 :inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"<Left>"
 
+function! GetPreCursorChar()
+    if col('.') <= 1
+        return ''
+    endif
+    let before_cursor = getline('.')[:col('.')-2]
+    return strcharpart(before_cursor, strchars(before_cursor)-1)
+endfunction
+
 " automatic closing tags
 function s:CompleteTags()
-  inoremap <buffer> > ></<C-x><C-o><Esc>:startinsert!<CR><C-O>?</<CR>
-  inoremap <buffer> ><Leader> >
-  inoremap <buffer> ><CR> ></<C-x><C-o><Esc>:startinsert!<CR><C-O>?</<CR><CR><Tab><CR><Up><C-O>$
+    " fix '=>' closing tag in typescript
+    inoremap <buffer> <expr> > GetPreCursorChar() == "=" ? ">" : "></\<C-x>\<C-o>\<Esc>:startinsert!\<CR>\<C-O>?</\<CR>"
+    inoremap <buffer> ><Leader> >
+    inoremap <buffer> ><CR> ></<C-x><C-o><Esc>:startinsert!<CR><C-O>?</<CR><CR><Tab><CR><Up><C-O>$
 endfunction
 autocmd BufRead,BufNewFile *.tsx,*.html,*.js,*.xml call s:CompleteTags()
 
