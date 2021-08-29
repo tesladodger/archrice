@@ -186,7 +186,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ycm-core/YouCompleteMe'
 Plug 'dense-analysis/ale'
-Plug 'dikiaap/minimalist'
+Plug 'tesladodger/minimalist'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree' |
