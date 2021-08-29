@@ -114,10 +114,25 @@ function! GetPreCursorChar()
     return strcharpart(before_cursor, strchars(before_cursor)-1)
 endfunction
 
-" automatic closing tags
+" ---------------------- "
+" Automatic closing tags "
+" ---------------------- "
+" only enable auto tags for certain regions in a filetype
+function s:AssertRegion()
+    if (&filetype == 'typescriptreact')
+        let l:regionStack = synstack(line('.'), col('.'))
+        for id in l:regionStack
+            let l:regionName = synIDattr(id, "name")
+            if regionName == "tsxRegion"
+                return 1
+            endif
+        endfor
+        return 0
+    else return 1
+    endif
+endfunction
 function s:CompleteTags()
-    " fix '=>' closing tag in typescript
-    inoremap <buffer> <expr> > GetPreCursorChar() == "="
+    inoremap <buffer> <expr> > AssertRegion()
                 \   ? ">"
                 \   : "></\<C-x>\<C-o>\<Esc>:startinsert!\<CR>\<C-O>?</\<CR>"
     inoremap <buffer> ><Leader> >
@@ -187,6 +202,10 @@ call plug#end()
 " Ale
 " ---
 let g:syntastic_tex_checkers = ['lacheck']
+let g:ale_fixers = {
+            \ 'typescriptreact': ['prettier'],
+            \ 'css': ['prettier'],
+            \}
 
 " Airline
 " -------
