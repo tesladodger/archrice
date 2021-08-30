@@ -43,6 +43,7 @@ set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
 set noerrorbells
 set nomodeline
 set noshowmode
+set number
 set relativenumber  " relative line numbers
 set scrolloff=5
 set shortmess=atI
@@ -56,8 +57,8 @@ set hidden          " don't force saving when changing buffer
 set wildchar=<Tab> wildmenu wildmode=full
 
 " Absolute number on command mode, back to relative on exit
-au CmdLineEnter * set norelativenumber | set number   | redraw
-au CmdLineLeave * set relativenumber   | set nonumber
+au CmdLineEnter * set norelativenumber | redraw
+au CmdLineLeave * set relativenumber   | set number
 
 " -------------- "
 " File templates "
@@ -231,6 +232,7 @@ let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
+let g:NERDTreeShowLineNumbers = 1
 
 " Minimalist
 " ----------
