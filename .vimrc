@@ -93,6 +93,17 @@ imap jj <Esc>o
 imap jk <Esc>O
 imap jl <Esc>
 
+" full substitution of visual selection
+xnoremap gs y:%s/<C-r>"//g<Left><Left>
+
+" change content inside parentheses or brackets with dp, db, cp, cb, etc
+onoremap b i[|
+onoremap p i(|
+
+" bring search results to midscreen
+nnoremap n nzz
+nnoremap N Nzz
+
 " automatic brackets
 inoremap {<CR> {<CR>}<ESC>O
 inoremap (<CR> (<CR>)<ESC>O
@@ -118,7 +129,7 @@ endfunction
 " Automatic closing tags "
 " ---------------------- "
 " only enable auto tags for certain regions in a filetype
-function s:AssertRegion()
+function! AssertRegion()
     if (&filetype == 'typescriptreact')
         let l:regionStack = synstack(line('.'), col('.'))
         for id in l:regionStack
@@ -128,28 +139,17 @@ function s:AssertRegion()
             endif
         endfor
         return 0
-    else return 1
     endif
+    return 1
 endfunction
 function s:CompleteTags()
     inoremap <buffer> <expr> > AssertRegion()
-                \   ? ">"
-                \   : "></\<C-x>\<C-o>\<Esc>:startinsert!\<CR>\<C-O>?</\<CR>"
+                \   ? "></\<C-x>\<C-o>\<Esc>:startinsert!\<CR>\<C-O>?</\<CR>"
+                \   : ">"
     inoremap <buffer> ><Leader> >
     inoremap <buffer> ><CR> ></<C-x><C-o><Esc>:startinsert!<CR><C-O>?</<CR><CR><Tab><CR><Up><C-O>$
 endfunction
 autocmd BufRead,BufNewFile *.tsx,*.html,*.js,*.xml call s:CompleteTags()
-
-" full substitution of visual selection
-xnoremap gs y:%s/<C-r>"//g<Left><Left>
-
-" change content inside parentheses or brackets with dp, db, cp, cb, etc
-onoremap b i[|
-onoremap p i(|
-
-" bring search results to midscreen
-nnoremap n nzz
-nnoremap N Nzz
 
 " --------------------------------------- "
 " Filetype specific settings and mappings "
