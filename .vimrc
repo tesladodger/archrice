@@ -172,6 +172,8 @@ autocmd Filetype vim iunmap "
 autocmd Filetype c nnoremap <F4> :w<bar>term ++shell gcc %:p -o %:p:r.out && %:p:r.out<CR>
 " typescriptreact - indentation
 autocmd Filetype typescriptreact setlocal shiftwidth=2 tabstop=2
+" typescript - indentation
+autocmd Filetype typescript setlocal shiftwidth=2 tabstop=2
 " gitcommit - spell checking
 autocmd Filetype gitcommit setlocal spell spelllang=en
 
@@ -204,6 +206,7 @@ call plug#end()
 " ---
 let g:syntastic_tex_checkers = ['lacheck']
 let g:ale_fixers = {
+            \ 'typescript': ['prettier'],
             \ 'typescriptreact': ['prettier'],
             \ 'css': ['prettier'],
             \}
