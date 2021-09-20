@@ -5,7 +5,7 @@ keycode 66 = BackSpace Caps_Lock BackSpace BackSpace
 ! Backspace to delete
 keycode 22 = Delete NoSymbol Delete
 
-! Various key re-mappings for convenience
+! Various key re-mappings over dvorak for convenience
 keycode 20 = bracketleft less bracketleft less
 keycode 21 = bracketright greater bracketright greater
 
@@ -23,8 +23,23 @@ keycode 61 = minus underscore minus underscore
 
 keycode 108 = Mode_switch NoSymbol Mode_switch NoSymbol Mode_switch Mode_switch
 
-keycode 38 = a A dead_acute dead_acute a A a A
-keycode 39 = o O dead_grave dead_grave o O o O
-keycode 40 = e E dead_tilde dead_tilde e E e E
-keycode 41 = u U dead_circumflex dead_circumflex u U u U
-keycode 27 = p P dead_cedilla dead_cedilla p P p P
+keycode 31 = c C ccedilla Ccedilla c C c C
+
+! dead diacritics in upper row
+keycode 24 = apostrophe quotedbl dead_acute dead_acute dead_acute dead_diaeresis dead_acute dead_diaeresis apostrophe quotedbl dead_acute dead_diaeresis apostrophe quotedbl dead_acute dead_diaeresis
+keycode 25 = comma braceleft dead_grave dead_grave dead_cedilla dead_caron dead_cedilla dead_caron comma braceleft dead_cedilla dead_caron comma braceleft dead_cedilla dead_caron
+keycode 26 = period braceright dead_tilde dead_tilde dead_abovedot periodcentered dead_abovedot periodcentered period braceright dead_abovedot periodcentered period braceright dead_abovedot periodcentered
+keycode  27 = p P dead_circumflex dead_circumflex p P p P
+
+! numbers on the home row
+keycode 38 = a A 1 exclam      a A a A
+keycode 39 = o O 2 at          o O o O
+keycode 40 = e E 3 numbersign  e E e E
+keycode 41 = u U 4 dollar      u U u U
+keycode 42 = i I 5 percent     i I i I
+
+keycode 44 = h H 6 asciicircum h H h H
+keycode 45 = t T 7 ampersand   t T t T
+keycode 46 = n N 8 asterisk    n N n N
+keycode 47 = s S 9 parenleft   s S s S
+keycode 48 = semicolon colon 0 parenright dead_ogonek dead_doubleacute dead_ogonek dead_doubleacute
